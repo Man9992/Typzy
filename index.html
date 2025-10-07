@@ -1,0 +1,3719 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>TypeFrenzy | Gen Z Typing Test</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+
+        :root {
+
+            --primary: #6c5ce7;
+
+            --secondary: #a29bfe;
+
+            --accent: #fd79a8;
+
+            --success: #00b894;
+
+            --danger: #d63031;
+
+            --warning: #fdcb6e;
+
+            --dark: #2d3436;
+
+            --light: #f5f6fa;
+
+            --bg: #ffffff;
+
+            --text: #2d3436;
+
+            --card-bg: #ffffff;
+
+            --shadow: rgba(0, 0, 0, 0.1);
+
+            --transition: all 0.3s ease;
+
+        }
+
+        .dark-mode {
+
+            --bg: #1a1a2e;
+
+            --text: #e6e6e6;
+
+            --card-bg: #16213e;
+
+            --shadow: rgba(0, 0, 0, 0.3);
+
+        }
+
+        * {
+
+            margin: 0;
+
+            padding: 0;
+
+            box-sizing: border-box;
+
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+        }
+
+        body {
+
+            background-color: var(--bg);
+
+            color: var(--text);
+
+            transition: var(--transition);
+
+            min-height: 100vh;
+
+            padding-bottom: 80px;
+
+        }
+
+        .container {
+
+            max-width: 100%;
+
+            padding: 0 16px;
+
+        }
+
+        header {
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            padding: 16px;
+
+            position: sticky;
+
+            top: 0;
+
+            background-color: var(--bg);
+
+            z-index: 100;
+
+            box-shadow: 0 2px 10px var(--shadow);
+
+        }
+
+        .logo {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 8px;
+
+            font-weight: 700;
+
+            font-size: 1.5rem;
+
+            color: var(--primary);
+
+        }
+
+        .logo i {
+
+            font-size: 1.8rem;
+
+        }
+
+        .theme-toggle {
+
+            background: none;
+
+            border: none;
+
+            font-size: 1.5rem;
+
+            color: var(--text);
+
+            cursor: pointer;
+
+        }
+
+        .nav-tabs {
+
+            display: flex;
+
+            overflow-x: auto;
+
+            gap: 8px;
+
+            padding: 8px 0;
+
+            margin-bottom: 16px;
+
+            -ms-overflow-style: none;
+
+            scrollbar-width: none;
+
+        }
+
+        .nav-tabs::-webkit-scrollbar {
+
+            display: none;
+
+        }
+
+        .tab {
+
+            padding: 12px 20px;
+
+            border-radius: 50px;
+
+            background-color: var(--card-bg);
+
+            border: none;
+
+            color: var(--text);
+
+            font-weight: 600;
+
+            cursor: pointer;
+
+            white-space: nowrap;
+
+            box-shadow: 0 2px 5px var(--shadow);
+
+            transition: var(--transition);
+
+        }
+
+        .tab.active {
+
+            background-color: var(--primary);
+
+            color: white;
+
+        }
+
+        .card {
+
+            background-color: var(--card-bg);
+
+            border-radius: 16px;
+
+            padding: 20px;
+
+            margin-bottom: 20px;
+
+            box-shadow: 0 4px 15px var(--shadow);
+
+        }
+
+        .section-title {
+
+            font-size: 1.2rem;
+
+            margin-bottom: 16px;
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 8px;
+
+        }
+
+        .mode-selector {
+
+            display: flex;
+
+            gap: 8px;
+
+            margin-bottom: 16px;
+
+            overflow-x: auto;
+
+            padding-bottom: 8px;
+
+        }
+
+        .mode-btn {
+
+            padding: 10px 16px;
+
+            border-radius: 50px;
+
+            background-color: var(--card-bg);
+
+            border: 2px solid var(--secondary);
+
+            color: var(--text);
+
+            font-weight: 600;
+
+            cursor: pointer;
+
+            white-space: nowrap;
+
+            transition: var(--transition);
+
+        }
+
+        .mode-btn.active {
+
+            background-color: var(--primary);
+
+            border-color: var(--primary);
+
+            color: white;
+
+        }
+
+        .difficulty-selector {
+
+            display: flex;
+
+            gap: 8px;
+
+            margin-bottom: 16px;
+
+            overflow-x: auto;
+
+            padding-bottom: 8px;
+
+        }
+
+        .difficulty-btn {
+
+            padding: 8px 16px;
+
+            border-radius: 50px;
+
+            background-color: var(--card-bg);
+
+            border: 2px solid var(--secondary);
+
+            color: var(--text);
+
+            font-weight: 600;
+
+            cursor: pointer;
+
+            white-space: nowrap;
+
+            transition: var(--transition);
+
+            font-size: 0.9rem;
+
+        }
+
+        .difficulty-btn.active {
+
+            color: white;
+
+        }
+
+        .difficulty-btn.easy.active {
+
+            background-color: var(--success);
+
+            border-color: var(--success);
+
+        }
+
+        .difficulty-btn.medium.active {
+
+            background-color: var(--warning);
+
+            border-color: var(--warning);
+
+        }
+
+        .difficulty-btn.hard.active {
+
+            background-color: var(--danger);
+
+            border-color: var(--danger);
+
+        }
+
+        .text-display {
+
+            background-color: var(--bg);
+
+            border-radius: 12px;
+
+            padding: 20px;
+
+            margin-bottom: 20px;
+
+            font-size: 1.2rem;
+
+            line-height: 1.6;
+
+            min-height: 150px;
+
+            box-shadow: inset 0 2px 5px var(--shadow);
+
+        }
+
+        .text-display span {
+
+            transition: var(--transition);
+
+        }
+
+        .text-display .correct {
+
+            color: var(--success);
+
+        }
+
+        .text-display .incorrect {
+
+            color: var(--danger);
+
+            text-decoration: underline;
+
+        }
+
+        .text-display .current {
+
+            background-color: var(--secondary);
+
+            border-radius: 3px;
+
+        }
+
+        .typing-input {
+
+            width: 100%;
+
+            height: 50px;
+
+            border: 2px solid var(--secondary);
+
+            border-radius: 12px;
+
+            padding: 0 16px;
+
+            font-size: 1.1rem;
+
+            background-color: var(--bg);
+
+            color: var(--text);
+
+            margin-bottom: 16px;
+
+            transition: var(--transition);
+
+        }
+
+        .typing-input:focus {
+
+            outline: none;
+
+            border-color: var(--primary);
+
+        }
+
+        .stats {
+
+            display: flex;
+
+            justify-content: space-between;
+
+            margin-bottom: 16px;
+
+        }
+
+        .stat-box {
+
+            text-align: center;
+
+            padding: 12px;
+
+            border-radius: 12px;
+
+            background-color: var(--card-bg);
+
+            flex: 1;
+
+            margin: 0 4px;
+
+            box-shadow: 0 2px 5px var(--shadow);
+
+        }
+
+        .stat-value {
+
+            font-size: 1.8rem;
+
+            font-weight: 700;
+
+            margin-bottom: 4px;
+
+        }
+
+        .stat-label {
+
+            font-size: 0.9rem;
+
+            color: var(--secondary);
+
+        }
+
+        .wpm {
+
+            color: var(--primary);
+
+        }
+
+        .accuracy {
+
+            color: var(--success);
+
+        }
+
+        .errors {
+
+            color: var(--danger);
+
+        }
+
+        .action-buttons {
+
+            display: flex;
+
+            gap: 12px;
+
+            margin-top: 20px;
+
+        }
+
+        .btn {
+
+            flex: 1;
+
+            padding: 14px;
+
+            border-radius: 12px;
+
+            border: none;
+
+            font-weight: 600;
+
+            font-size: 1rem;
+
+            cursor: pointer;
+
+            transition: var(--transition);
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            gap: 8px;
+
+        }
+
+        .btn-primary {
+
+            background-color: var(--primary);
+
+            color: white;
+
+        }
+
+        .btn-secondary {
+
+            background-color: var(--secondary);
+
+            color: white;
+
+        }
+
+        .btn-accent {
+
+            background-color: var(--accent);
+
+            color: white;
+
+        }
+
+        .progress-section {
+
+            display: none;
+
+        }
+
+        .chart-container {
+
+            height: 200px;
+
+            margin: 20px 0;
+
+            position: relative;
+
+        }
+
+        .progress-grid {
+
+            display: grid;
+
+            grid-template-columns: repeat(2, 1fr);
+
+            gap: 12px;
+
+            margin-top: 20px;
+
+        }
+
+        .progress-card {
+
+            background-color: var(--card-bg);
+
+            border-radius: 12px;
+
+            padding: 16px;
+
+            text-align: center;
+
+            box-shadow: 0 2px 5px var(--shadow);
+
+        }
+
+        .progress-value {
+
+            font-size: 1.8rem;
+
+            font-weight: 700;
+
+            margin-bottom: 4px;
+
+        }
+
+        .progress-label {
+
+            font-size: 0.9rem;
+
+            color: var(--secondary);
+
+        }
+
+        .badges {
+
+            display: flex;
+
+            flex-wrap: wrap;
+
+            gap: 12px;
+
+            margin-top: 20px;
+
+        }
+
+        .badge {
+
+            width: 60px;
+
+            height: 60px;
+
+            border-radius: 50%;
+
+            background-color: var(--warning);
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            font-size: 1.5rem;
+
+            box-shadow: 0 2px 5px var(--shadow);
+
+            position: relative;
+
+        }
+
+        .badge.locked {
+
+            background-color: var(--shadow);
+
+            color: rgba(255, 255, 255, 0.3);
+
+        }
+
+        .badge-progress {
+
+            position: absolute;
+
+            bottom: -5px;
+
+            left: 0;
+
+            right: 0;
+
+            height: 5px;
+
+            background-color: var(--shadow);
+
+            border-radius: 5px;
+
+            overflow: hidden;
+
+        }
+
+        .badge-progress-fill {
+
+            height: 100%;
+
+            background-color: var(--success);
+
+            transition: width 0.3s ease;
+
+        }
+
+        .settings-section {
+
+            display: none;
+
+        }
+
+        .setting-option {
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            padding: 16px 0;
+
+            border-bottom: 1px solid var(--shadow);
+
+        }
+
+        .toggle-switch {
+
+            position: relative;
+
+            display: inline-block;
+
+            width: 50px;
+
+            height: 24px;
+
+        }
+
+        .toggle-switch input {
+
+            opacity: 0;
+
+            width: 0;
+
+            height: 0;
+
+        }
+
+        .slider {
+
+            position: absolute;
+
+            cursor: pointer;
+
+            top: 0;
+
+            left: 0;
+
+            right: 0;
+
+            bottom: 0;
+
+            background-color: #ccc;
+
+            transition: .4s;
+
+            border-radius: 24px;
+
+        }
+
+        .slider:before {
+
+            position: absolute;
+
+            content: "";
+
+            height: 16px;
+
+            width: 16px;
+
+            left: 4px;
+
+            bottom: 4px;
+
+            background-color: white;
+
+            transition: .4s;
+
+            border-radius: 50%;
+
+        }
+
+        input:checked + .slider {
+
+            background-color: var(--primary);
+
+        }
+
+        input:checked + .slider:before {
+
+            transform: translateX(26px);
+
+        }
+
+        .result-section {
+
+            display: none;
+
+            text-align: center;
+
+        }
+
+        .result-icon {
+
+            font-size: 4rem;
+
+            color: var(--primary);
+
+            margin: 20px 0;
+
+        }
+
+        .result-stats {
+
+            display: flex;
+
+            justify-content: space-around;
+
+            margin: 20px 0;
+
+        }
+
+        .result-stat {
+
+            text-align: center;
+
+        }
+
+        .result-value {
+
+            font-size: 2.5rem;
+
+            font-weight: 700;
+
+        }
+
+        .result-label {
+
+            font-size: 0.9rem;
+
+            color: var(--secondary);
+
+        }
+
+        .share-buttons {
+
+            display: flex;
+
+            gap: 12px;
+
+            margin-top: 20px;
+
+        }
+
+        .share-btn {
+
+            flex: 1;
+
+            padding: 12px;
+
+            border-radius: 12px;
+
+            border: none;
+
+            font-weight: 600;
+
+            cursor: pointer;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            gap: 8px;
+
+            background-color: var(--card-bg);
+
+            color: var(--text);
+
+            box-shadow: 0 2px 5px var(--shadow);
+
+        }
+
+        .practice-section {
+
+            display: none;
+
+        }
+
+        .custom-text {
+
+            width: 100%;
+
+            height: 120px;
+
+            border: 2px solid var(--secondary);
+
+            border-radius: 12px;
+
+            padding: 16px;
+
+            font-size: 1rem;
+
+            background-color: var(--bg);
+
+            color: var(--text);
+
+            margin-bottom: 16px;
+
+            resize: none;
+
+            transition: var(--transition);
+
+        }
+
+        .custom-text:focus {
+
+            outline: none;
+
+            border-color: var(--primary);
+
+        }
+
+        .keyboard-rows {
+
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 8px;
+
+            margin-top: 20px;
+
+        }
+
+        .keyboard-row {
+
+            display: flex;
+
+            justify-content: center;
+
+            gap: 4px;
+
+        }
+
+        .key {
+
+            width: 30px;
+
+            height: 40px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            background-color: var(--card-bg);
+
+            border-radius: 6px;
+
+            font-weight: 600;
+
+            box-shadow: 0 2px 5px var(--shadow);
+
+            transition: var(--transition);
+
+        }
+
+        .key.active {
+
+            background-color: var(--primary);
+
+            color: white;
+
+        }
+
+        .key.incorrect {
+
+            background-color: var(--danger);
+
+            color: white;
+
+        }
+
+        .missions-section {
+
+            display: none;
+
+        }
+
+        .mission-list {
+
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 12px;
+
+        }
+
+        .mission-item {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 12px;
+
+            padding: 16px;
+
+            background-color: var(--card-bg);
+
+            border-radius: 12px;
+
+            box-shadow: 0 2px 5px var(--shadow);
+
+        }
+
+        .mission-icon {
+
+            width: 40px;
+
+            height: 40px;
+
+            border-radius: 50%;
+
+            background-color: var(--primary);
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            color: white;
+
+            font-size: 1.2rem;
+
+        }
+
+        .mission-details {
+
+            flex: 1;
+
+        }
+
+        .mission-title {
+
+            font-weight: 600;
+
+            margin-bottom: 4px;
+
+        }
+
+        .mission-description {
+
+            font-size: 0.9rem;
+
+            color: var(--secondary);
+
+        }
+
+        .mission-progress {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 8px;
+
+        }
+
+        .mission-progress-bar {
+
+            width: 100px;
+
+            height: 6px;
+
+            background-color: var(--shadow);
+
+            border-radius: 3px;
+
+            overflow: hidden;
+
+        }
+
+        .mission-progress-fill {
+
+            height: 100%;
+
+            background-color: var(--success);
+
+            transition: width 0.3s ease;
+
+        }
+
+        .mission-reward {
+
+            font-weight: 600;
+
+            color: var(--warning);
+
+        }
+
+        .mission-completed .mission-icon {
+
+            background-color: var(--success);
+
+        }
+
+        .footer {
+
+            position: fixed;
+
+            bottom: 0;
+
+            left: 0;
+
+            right: 0;
+
+            background-color: var(--bg);
+
+            padding: 16px;
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            box-shadow: 0 -2px 10px var(--shadow);
+
+        }
+
+        .footer-btn {
+
+            display: flex;
+
+            flex-direction: column;
+
+            align-items: center;
+
+            gap: 4px;
+
+            background: none;
+
+            border: none;
+
+            color: var(--text);
+
+            font-size: 0.8rem;
+
+            cursor: pointer;
+
+            transition: var(--transition);
+
+        }
+
+        .footer-btn.active {
+
+            color: var(--primary);
+
+        }
+
+        .footer-btn i {
+
+            font-size: 1.2rem;
+
+        }
+
+        .notification {
+
+            position: fixed;
+
+            top: 80px;
+
+            right: 16px;
+
+            background-color: var(--success);
+
+            color: white;
+
+            padding: 12px 20px;
+
+            border-radius: 12px;
+
+            box-shadow: 0 4px 15px var(--shadow);
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 8px;
+
+            transform: translateX(150%);
+
+            transition: transform 0.3s ease;
+
+            z-index: 1000;
+
+        }
+
+        .notification.show {
+
+            transform: translateX(0);
+
+        }
+
+        .notification i {
+
+            font-size: 1.2rem;
+
+        }
+
+        @media (min-width: 768px) {
+
+            .container {
+
+                max-width: 700px;
+
+                margin: 0 auto;
+
+            }
+
+            
+
+            .stats {
+
+                justify-content: space-around;
+
+            }
+
+            
+
+            .stat-box {
+
+                flex: none;
+
+                width: 120px;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <header>
+
+        <div class="logo">
+
+            <i class="fas fa-keyboard"></i>
+
+            <span>TypeFrenzy</span>
+
+        </div>
+
+        <button class="theme-toggle" id="themeToggle">
+
+            <i class="fas fa-moon"></i>
+
+        </button>
+
+    </header>
+
+    <div class="notification" id="notification">
+
+        <i class="fas fa-trophy"></i>
+
+        <span id="notificationText">Mission Completed!</span>
+
+    </div>
+
+    <div class="container">
+
+        <div class="nav-tabs">
+
+            <button class="tab active" data-tab="test">Typing Test</button>
+
+            <button class="tab" data-tab="practice">Practice</button>
+
+            <button class="tab" data-tab="missions">Missions</button>
+
+            <button class="tab" data-tab="progress">Progress</button>
+
+            <button class="tab" data-tab="settings">Settings</button>
+
+        </div>
+
+        <!-- Typing Test Section -->
+
+        <div class="test-section">
+
+            <div class="card">
+
+                <h2 class="section-title">
+
+                    <i class="fas fa-tachometer-alt"></i>
+
+                    Typing Test
+
+                </h2>
+
+                
+
+                <div class="mode-selector">
+
+                    <button class="mode-btn active" data-mode="time" data-value="1">1 min</button>
+
+                    <button class="mode-btn" data-mode="time" data-value="3">3 min</button>
+
+                    <button class="mode-btn" data-mode="time" data-value="5">5 min</button>
+
+                    <button class="mode-btn" data-mode="words" data-value="50">50 words</button>
+
+                    <button class="mode-btn" data-mode="words" data-value="100">100 words</button>
+
+                    <button class="mode-btn" data-mode="infinity">Infinity</button>
+
+                </div>
+
+                <div class="difficulty-selector">
+
+                    <button class="difficulty-btn easy active" data-difficulty="easy">Easy</button>
+
+                    <button class="difficulty-btn medium" data-difficulty="medium">Medium</button>
+
+                    <button class="difficulty-btn hard" data-difficulty="hard">Hard</button>
+
+                </div>
+
+                <div class="text-display" id="textDisplay">
+
+                    <!-- Text will be inserted here by JavaScript -->
+
+                </div>
+
+                <input type="text" class="typing-input" id="typingInput" placeholder="Start typing here...">
+
+                <div class="stats">
+
+                    <div class="stat-box">
+
+                        <div class="stat-value wpm" id="wpmValue">0</div>
+
+                        <div class="stat-label">WPM</div>
+
+                    </div>
+
+                    <div class="stat-box">
+
+                        <div class="stat-value accuracy" id="accuracyValue">100%</div>
+
+                        <div class="stat-label">Accuracy</div>
+
+                    </div>
+
+                    <div class="stat-box">
+
+                        <div class="stat-value errors" id="errorsValue">0</div>
+
+                        <div class="stat-label">Errors</div>
+
+                    </div>
+
+                </div>
+
+                <div class="action-buttons">
+
+                    <button class="btn btn-primary" id="startBtn">
+
+                        <i class="fas fa-play"></i>
+
+                        Start Test
+
+                    </button>
+
+                    <button class="btn btn-secondary" id="resetBtn">
+
+                        <i class="fas fa-redo"></i>
+
+                        Reset
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- Practice Section -->
+
+        <div class="practice-section">
+
+            <div class="card">
+
+                <h2 class="section-title">
+
+                    <i class="fas fa-dumbbell"></i>
+
+                    Practice Mode
+
+                </h2>
+
+                
+
+                <div class="mode-selector">
+
+                    <button class="mode-btn active" data-practice="home">Home Row</button>
+
+                    <button class="mode-btn" data-practice="top">Top Row</button>
+
+                    <button class="mode-btn" data-practice="bottom">Bottom Row</button>
+
+                    <button class="mode-btn" data-practice="numbers">Numbers</button>
+
+                    <button class="mode-btn" data-practice="symbols">Symbols</button>
+
+                    <button class="mode-btn" data-practice="custom">Custom Text</button>
+
+                </div>
+
+                <div class="difficulty-selector">
+
+                    <button class="difficulty-btn easy active" data-practice-difficulty="easy">Easy</button>
+
+                    <button class="difficulty-btn medium" data-practice-difficulty="medium">Medium</button>
+
+                    <button class="difficulty-btn hard" data-practice-difficulty="hard">Hard</button>
+
+                </div>
+
+                <div class="text-display" id="practiceTextDisplay">
+
+                    <!-- Practice text will be inserted here by JavaScript -->
+
+                </div>
+
+                <textarea class="custom-text" id="customText" placeholder="Paste or type your custom text here..."></textarea>
+
+                <input type="text" class="typing-input" id="practiceInput" placeholder="Start typing here...">
+
+                <div class="stats">
+
+                    <div class="stat-box">
+
+                        <div class="stat-value wpm" id="practiceWpm">0</div>
+
+                        <div class="stat-label">WPM</div>
+
+                    </div>
+
+                    <div class="stat-box">
+
+                        <div class="stat-value accuracy" id="practiceAccuracy">100%</div>
+
+                        <div class="stat-label">Accuracy</div>
+
+                    </div>
+
+                    <div class="stat-box">
+
+                        <div class="stat-value errors" id="practiceErrors">0</div>
+
+                        <div class="stat-label">Errors</div>
+
+                    </div>
+
+                </div>
+
+                <div class="keyboard-rows">
+
+                    <div class="keyboard-row">
+
+                        <div class="key">q</div>
+
+                        <div class="key">w</div>
+
+                        <div class="key">e</div>
+
+                        <div class="key">r</div>
+
+                        <div class="key">t</div>
+
+                        <div class="key">y</div>
+
+                        <div class="key">u</div>
+
+                        <div class="key">i</div>
+
+                        <div class="key">o</div>
+
+                        <div class="key">p</div>
+
+                    </div>
+
+                    <div class="keyboard-row">
+
+                        <div class="key">a</div>
+
+                        <div class="key">s</div>
+
+                        <div class="key">d</div>
+
+                        <div class="key">f</div>
+
+                        <div class="key">g</div>
+
+                        <div class="key">h</div>
+
+                        <div class="key">j</div>
+
+                        <div class="key">k</div>
+
+                        <div class="key">l</div>
+
+                    </div>
+
+                    <div class="keyboard-row">
+
+                        <div class="key">z</div>
+
+                        <div class="key">x</div>
+
+                        <div class="key">c</div>
+
+                        <div class="key">v</div>
+
+                        <div class="key">b</div>
+
+                        <div class="key">n</div>
+
+                        <div class="key">m</div>
+
+                    </div>
+
+                </div>
+
+                <div class="action-buttons">
+
+                    <button class="btn btn-primary" id="practiceStartBtn">
+
+                        <i class="fas fa-play"></i>
+
+                        Start Practice
+
+                    </button>
+
+                    <button class="btn btn-secondary" id="practiceResetBtn">
+
+                        <i class="fas fa-redo"></i>
+
+                        Reset
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- Missions Section -->
+
+        <div class="missions-section">
+
+            <div class="card">
+
+                <h2 class="section-title">
+
+                    <i class="fas fa-flag"></i>
+
+                    Missions & Achievements
+
+                </h2>
+
+                <div class="mission-list" id="missionList">
+
+                    <!-- Missions will be inserted here by JavaScript -->
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- Progress Section -->
+
+        <div class="progress-section">
+
+            <div class="card">
+
+                <h2 class="section-title">
+
+                    <i class="fas fa-chart-line"></i>
+
+                    Your Progress
+
+                </h2>
+
+                <div class="progress-grid">
+
+                    <div class="progress-card">
+
+                        <div class="progress-value" id="avgWpm">42</div>
+
+                        <div class="progress-label">Avg WPM</div>
+
+                    </div>
+
+                    <div class="progress-card">
+
+                        <div class="progress-value" id="avgAccuracy">94%</div>
+
+                        <div class="progress-label">Avg Accuracy</div>
+
+                    </div>
+
+                    <div class="progress-card">
+
+                        <div class="progress-value" id="testsTaken">17</div>
+
+                        <div class="progress-label">Tests Taken</div>
+
+                    </div>
+
+                    <div class="progress-card">
+
+                        <div class="progress-value" id="currentStreak">5</div>
+
+                        <div class="progress-label">Day Streak</div>
+
+                    </div>
+
+                </div>
+
+                <div class="chart-container">
+
+                    <canvas id="progressChart"></canvas>
+
+                </div>
+
+                <h3 class="section-title">
+
+                    <i class="fas fa-trophy"></i>
+
+                    Your Badges
+
+                </h3>
+
+                <div class="badges">
+
+                    <div class="badge">
+
+                        <i class="fas fa-rocket"></i>
+
+                        <div class="badge-progress">
+
+                            <div class="badge-progress-fill" style="width: 100%"></div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="badge">
+
+                        <i class="fas fa-bolt"></i>
+
+                        <div class="badge-progress">
+
+                            <div class="badge-progress-fill" style="width: 75%"></div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="badge locked">
+
+                        <i class="fas fa-crown"></i>
+
+                        <div class="badge-progress">
+
+                            <div class="badge-progress-fill" style="width: 30%"></div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="badge">
+
+                        <i class="fas fa-star"></i>
+
+                        <div class="badge-progress">
+
+                            <div class="badge-progress-fill" style="width: 100%"></div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="badge locked">
+
+                        <i class="fas fa-gem"></i>
+
+                        <div class="badge-progress">
+
+                            <div class="badge-progress-fill" style="width: 10%"></div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- Settings Section -->
+
+        <div class="settings-section">
+
+            <div class="card">
+
+                <h2 class="section-title">
+
+                    <i class="fas fa-cog"></i>
+
+                    Settings
+
+                </h2>
+
+                <div class="setting-option">
+
+                    <span>Sound Effects</span>
+
+                    <label class="toggle-switch">
+
+                        <input type="checkbox" id="soundToggle" checked>
+
+                        <span class="slider"></span>
+
+                    </label>
+
+                </div>
+
+                <div class="setting-option">
+
+                    <span>Type Sounds</span>
+
+                    <label class="toggle-switch">
+
+                        <input type="checkbox" id="typeSoundToggle" checked>
+
+                        <span class="slider"></span>
+
+                    </label>
+
+                </div>
+
+                <div class="setting-option">
+
+                    <span>Error Sounds</span>
+
+                    <label class="toggle-switch">
+
+                        <input type="checkbox" id="errorSoundToggle" checked>
+
+                        <span class="slider"></span>
+
+                    </label>
+
+                </div>
+
+                <div class="setting-option">
+
+                    <span>Show Virtual Keyboard</span>
+
+                    <label class="toggle-switch">
+
+                        <input type="checkbox" id="keyboardToggle" checked>
+
+                        <span class="slider"></span>
+
+                    </label>
+
+                </div>
+
+                <div class="setting-option">
+
+                    <span>Punctuation in Tests</span>
+
+                    <label class="toggle-switch">
+
+                        <input type="checkbox" id="punctuationToggle" checked>
+
+                        <span class="slider"></span>
+
+                    </label>
+
+                </div>
+
+                <div class="setting-option">
+
+                    <span>Capital Letters</span>
+
+                    <label class="toggle-switch">
+
+                        <input type="checkbox" id="capitalToggle">
+
+                        <span class="slider"></span>
+
+                    </label>
+
+                </div>
+
+                <div class="action-buttons">
+
+                    <button class="btn btn-accent" id="exportDataBtn">
+
+                        <i class="fas fa-download"></i>
+
+                        Export Data
+
+                    </button>
+
+                    <button class="btn btn-secondary" id="clearDataBtn">
+
+                        <i class="fas fa-trash"></i>
+
+                        Clear Data
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- Result Section -->
+
+        <div class="result-section">
+
+            <div class="card">
+
+                <div class="result-icon">
+
+                    <i class="fas fa-trophy"></i>
+
+                </div>
+
+                
+
+                <h2>Test Completed!</h2>
+
+                <p>Great job! You've completed the typing test.</p>
+
+                <div class="result-stats">
+
+                    <div class="result-stat">
+
+                        <div class="result-value wpm" id="resultWpm">52</div>
+
+                        <div class="result-label">WPM</div>
+
+                    </div>
+
+                    <div class="result-stat">
+
+                        <div class="result-value accuracy" id="resultAccuracy">96%</div>
+
+                        <div class="result-label">Accuracy</div>
+
+                    </div>
+
+                    <div class="result-stat">
+
+                        <div class="result-value errors" id="resultErrors">2</div>
+
+                        <div class="result-label">Errors</div>
+
+                    </div>
+
+                </div>
+
+                <div class="share-buttons">
+
+                    <button class="share-btn">
+
+                        <i class="fab fa-twitter"></i>
+
+                        Twitter
+
+                    </button>
+
+                    <button class="share-btn">
+
+                        <i class="fab fa-instagram"></i>
+
+                        Instagram
+
+                    </button>
+
+                    <button class="share-btn">
+
+                        <i class="fab fa-tiktok"></i>
+
+                        TikTok
+
+                    </button>
+
+                </div>
+
+                <div class="action-buttons">
+
+                    <button class="btn btn-primary" id="retryBtn">
+
+                        <i class="fas fa-redo"></i>
+
+                        Try Again
+
+                    </button>
+
+                    <button class="btn btn-secondary" id="backToTestBtn">
+
+                        <i class="fas fa-home"></i>
+
+                        Back to Test
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="footer">
+
+        <button class="footer-btn active" data-tab="test">
+
+            <i class="fas fa-keyboard"></i>
+
+            <span>Test</span>
+
+        </button>
+
+        <button class="footer-btn" data-tab="practice">
+
+            <i class="fas fa-dumbbell"></i>
+
+            <span>Practice</span>
+
+        </button>
+
+        <button class="footer-btn" data-tab="missions">
+
+            <i class="fas fa-flag"></i>
+
+            <span>Missions</span>
+
+        </button>
+
+        <button class="footer-btn" data-tab="progress">
+
+            <i class="fas fa-chart-line"></i>
+
+            <span>Progress</span>
+
+        </button>
+
+        <button class="footer-btn" data-tab="settings">
+
+            <i class="fas fa-cog"></i>
+
+            <span>Settings</span>
+
+        </button>
+
+    </div>
+
+    <script>
+
+        // Sample texts for typing tests by difficulty
+
+        const sampleTexts = {
+
+            easy: [
+
+                "The quick brown fox jumps over the lazy dog. This sentence has all letters.",
+
+                "I love to type on my computer keyboard every single day of the week.",
+
+                "Learning to type fast is a very useful skill for school and for work.",
+
+                "My friend and I went to the park to play with our dogs and have fun.",
+
+                "The sun is shining bright today and the birds are singing in the trees.",
+
+                "We should always try to be kind to others and help them when we can.",
+
+                "Reading books is a great way to learn new things and have fun too.",
+
+                "I like to eat pizza with my family on Friday nights while we watch movies.",
+
+                "The cat sat on the mat and watched the little bird outside the window.",
+
+                "My favorite color is blue but I also like green and purple very much."
+
+            ],
+
+            medium: [
+
+                "Programming is the process of creating a set of instructions that tell a computer how to perform a task.",
+
+                "Social media has changed the way we communicate with each other and share information in our daily lives.",
+
+                "Climate change refers to long-term shifts in temperatures and weather patterns mainly caused by human activities.",
+
+                "Virtual reality is a simulated experience that can be similar to or completely different from the real world.",
+
+                "Blockchain is a system of recording information in a way that makes it difficult or impossible to change or hack.",
+
+                "Renewable energy is energy that is collected from renewable resources which are naturally replenished on a human timescale.",
+
+                "Cryptocurrency is a digital currency designed to work as a medium of exchange through a computer network.",
+
+                "Artificial intelligence is intelligence demonstrated by machines as opposed to natural intelligence of humans.",
+
+                "The development of new technologies has revolutionized many aspects of modern society and daily life.",
+
+                "Effective communication skills are essential for success in both personal and professional relationships."
+
+            ],
+
+            hard: [
+
+                "The quintessential juxtaposition of ostensibly paradoxical ideologies often promulgates cognitive dissonance among the populace.",
+
+                "Quantum mechanics elucidates the fundamental behavior of particles at microscopic scales, defying classical intuition.",
+
+                "Epistemological inquiries into the nature of knowledge necessitate rigorous methodological scrutiny and philosophical introspection.",
+
+                "The proliferation of misinformation in contemporary digital ecosystems poses significant challenges to democratic discourse.",
+
+                "Neuroscientific advancements have illuminated the intricate neural correlates underlying consciousness and subjective experience.",
+
+                "Postmodern literary criticism deconstructs canonical texts to reveal inherent power structures and ideological underpinnings.",
+
+                "The ontological argument for God's existence posits that the very concept necessitates actual being in reality.",
+
+                "Metaphorical language serves as a cognitive tool for conceptualizing abstract notions through concrete experiential domains.",
+
+                "The hermeneutic circle describes the iterative process of understanding a text through its parts and the whole simultaneously.",
+
+                "Socioeconomic stratification perpetuates systemic inequalities that manifest across multiple dimensions of human existence."
+
+            ]
+
+        };
+
+        // Practice texts for different rows and difficulties
+
+        const practiceTexts = {
+
+            home: {
+
+                easy: "asdf jkl; asdf jkl; asdf jkl; asdf jkl; asdf jkl; asdf jkl; asdf jkl;",
+
+                medium: "asdf jkl; asdf jkl; asdfg hjkl; asdfg hjkl; asdfgh jkl; asdfgh jkl;",
+
+                hard: "asdfg hjkl; asdfgh jkl; asdfghj kl; asdfghj kl; asdfghjk l; asdfghjk l;"
+
+            },
+
+            top: {
+
+                easy: "qwert yuiop qwert yuiop qwert yuiop qwert yuiop qwert yuiop",
+
+                medium: "qwert yuiop qwerty uiop qwerty uiop qwertyu iop qwertyu iop",
+
+                hard: "qwerty uiop qwertyu iop qwertyui op qwertyui op qwertyuiop qwertyuiop"
+
+            },
+
+            bottom: {
+
+                easy: "zxcvb nm,./ zxcvb nm,./ zxcvb nm,./ zxcvb nm,./ zxcvb nm,./",
+
+                medium: "zxcvb nm,./ zxcvbn m,./ zxcvbn m,./ zxcvbnm ,./ zxcvbnm ,./",
+
+                hard: "zxcvbn m,./ zxcvbnm ,./ zxcvbnm, ./ zxcvbnm, ./ zxcvbnm,./ zxcvbnm,./"
+
+            },
+
+            numbers: {
+
+                easy: "12345 67890 12345 67890 12345 67890 12345 67890 12345 67890",
+
+                medium: "12345 67890 123456 7890 123456 7890 1234567 890 1234567 890",
+
+                hard: "123456 7890 1234567 890 12345678 90 12345678 90 1234567890 1234567890"
+
+            },
+
+            symbols: {
+
+                easy: "!@#$% ^&*() !@#$% ^&*() !@#$% ^&*() !@#$% ^&*() !@#$% ^&*()",
+
+                medium: "!@#$% ^&*() !@#$%^ &*() !@#$%^ &*() !@#$%^& *() !@#$%^& *()",
+
+                hard: "!@#$%^ &*() !@#$%^& *() !@#$%^&* () !@#$%^&* () !@#$%^&*() !@#$%^&*()"
+
+            }
+
+        };
+
+        // Missions data
+
+        const missions = [
+
+            {
+
+                id: 1,
+
+                title: "First Steps",
+
+                description: "Complete 5 typing tests",
+
+                icon: "fa-footsteps",
+
+                progress: 0,
+
+                target: 5,
+
+                reward: "🏆 Beginner Badge",
+
+                completed: false
+
+            },
+
+            {
+
+                id: 2,
+
+                title: "Speed Demon",
+
+                description: "Achieve 60 WPM in a test",
+
+                icon: "fa-bolt",
+
+                progress: 0,
+
+                target: 60,
+
+                reward: "⚡ Speed Badge",
+
+                completed: false
+
+            },
+
+            {
+
+                id: 3,
+
+                title: "Accuracy Master",
+
+                description: "Achieve 98% accuracy in a test",
+
+                icon: "fa-bullseye",
+
+                progress: 0,
+
+                target: 98,
+
+                reward: "🎯 Accuracy Badge",
+
+                completed: false
+
+            },
+
+            {
+
+                id: 4,
+
+                title: "Practice Makes Perfect",
+
+                description: "Complete 10 practice sessions",
+
+                icon: "fa-dumbbell",
+
+                progress: 0,
+
+                target: 10,
+
+                reward: "💪 Practice Badge",
+
+                completed: false
+
+            },
+
+            {
+
+                id: 5,
+
+                title: "Marathon Typist",
+
+                description: "Complete a 5-minute typing test",
+
+                icon: "fa-running",
+
+                progress: 0,
+
+                target: 1,
+
+                reward: "🏃 Marathon Badge",
+
+                completed: false
+
+            },
+
+            {
+
+                id: 6,
+
+                title: "Consistency King",
+
+                description: "Maintain a 7-day streak",
+
+                icon: "fa-calendar",
+
+                progress: 0,
+
+                target: 7,
+
+                reward: "📅 Streak Badge",
+
+                completed: false
+
+            },
+
+            {
+
+                id: 7,
+
+                title: "Word Warrior",
+
+                description: "Type 500 words in one session",
+
+                icon: "fa-keyboard",
+
+                progress: 0,
+
+                target: 500,
+
+                reward: "⌨️ Warrior Badge",
+
+                completed: false
+
+            },
+
+            {
+
+                id: 8,
+
+                title: "Error Eliminator",
+
+                description: "Complete a test with 0 errors",
+
+                icon: "fa-check-circle",
+
+                progress: 0,
+
+                target: 1,
+
+                reward: "✅ Perfect Badge",
+
+                completed: false
+
+            }
+
+        ];
+
+        // DOM Elements
+
+        const themeToggle = document.getElementById('themeToggle');
+
+        const tabs = document.querySelectorAll('.tab');
+
+        const footerBtns = document.querySelectorAll('.footer-btn');
+
+        const modeBtns = document.querySelectorAll('.mode-btn');
+
+        const practiceModeBtns = document.querySelectorAll('[data-practice]');
+
+        const difficultyBtns = document.querySelectorAll('.difficulty-btn');
+
+        const practiceDifficultyBtns = document.querySelectorAll('[data-practice-difficulty]');
+
+        const textDisplay = document.getElementById('textDisplay');
+
+        const practiceTextDisplay = document.getElementById('practiceTextDisplay');
+
+        const typingInput = document.getElementById('typingInput');
+
+        const practiceInput = document.getElementById('practiceInput');
+
+        const customText = document.getElementById('customText');
+
+        const startBtn = document.getElementById('startBtn');
+
+        const resetBtn = document.getElementById('resetBtn');
+
+        const practiceStartBtn = document.getElementById('practiceStartBtn');
+
+        const practiceResetBtn = document.getElementById('practiceResetBtn');
+
+        const retryBtn = document.getElementById('retryBtn');
+
+        const backToTestBtn = document.getElementById('backToTestBtn');
+
+        const wpmValue = document.getElementById('wpmValue');
+
+        const accuracyValue = document.getElementById('accuracyValue');
+
+        const errorsValue = document.getElementById('errorsValue');
+
+        const practiceWpm = document.getElementById('practiceWpm');
+
+        const practiceAccuracy = document.getElementById('practiceAccuracy');
+
+        const practiceErrors = document.getElementById('practiceErrors');
+
+        const resultWpm = document.getElementById('resultWpm');
+
+        const resultAccuracy = document.getElementById('resultAccuracy');
+
+        const resultErrors = document.getElementById('resultErrors');
+
+        const keyboardToggle = document.getElementById('keyboardToggle');
+
+        const keys = document.querySelectorAll('.key');
+
+        const missionList = document.getElementById('missionList');
+
+        const notification = document.getElementById('notification');
+
+        const notificationText = document.getElementById('notificationText');
+
+        // State variables
+
+        let currentText = '';
+
+        let currentPracticeText = '';
+
+        let currentIndex = 0;
+
+        let errors = 0;
+
+        let startTime;
+
+        let timer;
+
+        let isTestRunning = false;
+
+        let isPracticeRunning = false;
+
+        let currentMode = 'time';
+
+        let currentModeValue = 1;
+
+        let currentPracticeMode = 'home';
+
+        let currentDifficulty = 'easy';
+
+        let currentPracticeDifficulty = 'easy';
+
+        let userMissions = [];
+
+        let userStats = {
+
+            testsCompleted: 0,
+
+            practiceSessions: 0,
+
+            bestWpm: 0,
+
+            bestAccuracy: 0,
+
+            currentStreak: 0,
+
+            lastActivity: null,
+
+            totalWords: 0
+
+        };
+
+        // Initialize the app
+
+        function init() {
+
+            // Set up event listeners
+
+            themeToggle.addEventListener('click', toggleTheme);
+
+            
+
+            tabs.forEach(tab => {
+
+                tab.addEventListener('click', () => switchTab(tab.dataset.tab));
+
+            });
+
+            
+
+            footerBtns.forEach(btn => {
+
+                btn.addEventListener('click', () => switchTab(btn.dataset.tab));
+
+            });
+
+            
+
+            modeBtns.forEach(btn => {
+
+                btn.addEventListener('click', () => {
+
+                    modeBtns.forEach(b => b.classList.remove('active'));
+
+                    btn.classList.add('active');
+
+                    currentMode = btn.dataset.mode;
+
+                    if (btn.dataset.value) {
+
+                        currentModeValue = parseInt(btn.dataset.value);
+
+                    }
+
+                    resetTest();
+
+                });
+
+            });
+
+            
+
+            practiceModeBtns.forEach(btn => {
+
+                btn.addEventListener('click', () => {
+
+                    practiceModeBtns.forEach(b => b.classList.remove('active'));
+
+                    btn.classList.add('active');
+
+                    currentPracticeMode = btn.dataset.practice;
+
+                    resetPractice();
+
+                    
+
+                    // Show/hide custom text area
+
+                    if (currentPracticeMode === 'custom') {
+
+                        customText.style.display = 'block';
+
+                    } else {
+
+                        customText.style.display = 'none';
+
+                    }
+
+                });
+
+            });
+
+            
+
+            difficultyBtns.forEach(btn => {
+
+                btn.addEventListener('click', () => {
+
+                    difficultyBtns.forEach(b => b.classList.remove('active'));
+
+                    btn.classList.add('active');
+
+                    currentDifficulty = btn.dataset.difficulty;
+
+                    resetTest();
+
+                });
+
+            });
+
+            
+
+            practiceDifficultyBtns.forEach(btn => {
+
+                btn.addEventListener('click', () => {
+
+                    practiceDifficultyBtns.forEach(b => b.classList.remove('active'));
+
+                    btn.classList.add('active');
+
+                    currentPracticeDifficulty = btn.dataset.practiceDifficulty;
+
+                    resetPractice();
+
+                });
+
+            });
+
+            
+
+            startBtn.addEventListener('click', startTest);
+
+            resetBtn.addEventListener('click', resetTest);
+
+            practiceStartBtn.addEventListener('click', startPractice);
+
+            practiceResetBtn.addEventListener('click', resetPractice);
+
+            retryBtn.addEventListener('click', retryTest);
+
+            backToTestBtn.addEventListener('click', () => switchTab('test'));
+
+            
+
+            typingInput.addEventListener('input', handleTyping);
+
+            practiceInput.addEventListener('input', handlePracticeTyping);
+
+            customText.addEventListener('input', updateCustomPracticeText);
+
+            
+
+            // Load user data from localStorage
+
+            loadUserData();
+
+            
+
+            // Initialize with a random text
+
+            resetTest();
+
+            resetPractice();
+
+            
+
+            // Load saved theme preference
+
+            if (localStorage.getItem('darkMode') === 'true') {
+
+                document.body.classList.add('dark-mode');
+
+                themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+
+            }
+
+            
+
+            // Render missions
+
+            renderMissions();
+
+        }
+
+        // Load user data from localStorage
+
+        function loadUserData() {
+
+            const savedMissions = localStorage.getItem('typeFrenzyMissions');
+
+            const savedStats = localStorage.getItem('typeFrenzyStats');
+
+            
+
+            if (savedMissions) {
+
+                userMissions = JSON.parse(savedMissions);
+
+            } else {
+
+                userMissions = [...missions];
+
+            }
+
+            
+
+            if (savedStats) {
+
+                userStats = JSON.parse(savedStats);
+
+                updateStatsDisplay();
+
+            }
+
+        }
+
+        // Save user data to localStorage
+
+        function saveUserData() {
+
+            localStorage.setItem('typeFrenzyMissions', JSON.stringify(userMissions));
+
+            localStorage.setItem('typeFrenzyStats', JSON.stringify(userStats));
+
+        }
+
+        // Update stats display
+
+        function updateStatsDisplay() {
+
+            document.getElementById('avgWpm').textContent = userStats.bestWpm;
+
+            document.getElementById('avgAccuracy').textContent = `${userStats.bestAccuracy}%`;
+
+            document.getElementById('testsTaken').textContent = userStats.testsCompleted;
+
+            document.getElementById('currentStreak').textContent = userStats.currentStreak;
+
+        }
+
+        // Render missions
+
+        function renderMissions() {
+
+            missionList.innerHTML = '';
+
+            
+
+            userMissions.forEach(mission => {
+
+                const missionItem = document.createElement('div');
+
+                missionItem.className = `mission-item ${mission.completed ? 'mission-completed' : ''}`;
+
+                
+
+                const progressPercent = Math.min((mission.progress / mission.target) * 100, 100);
+
+                
+
+                missionItem.innerHTML = `
+
+                    <div class="mission-icon">
+
+                        <i class="fas ${mission.icon}"></i>
+
+                    </div>
+
+                    <div class="mission-details">
+
+                        <div class="mission-title">${mission.title}</div>
+
+                        <div class="mission-description">${mission.description}</div>
+
+                    </div>
+
+                    <div class="mission-progress">
+
+                        <div class="mission-progress-bar">
+
+                            <div class="mission-progress-fill" style="width: ${progressPercent}%"></div>
+
+                        </div>
+
+                        <div class="mission-reward">${mission.reward}</div>
+
+                    </div>
+
+                `;
+
+                
+
+                missionList.appendChild(missionItem);
+
+            });
+
+        }
+
+        // Check and update missions
+
+        function checkMissions(type, value) {
+
+            let updated = false;
+
+            
+
+            userMissions.forEach(mission => {
+
+                if (mission.completed) return;
+
+                
+
+                let progress = mission.progress;
+
+                
+
+                switch(mission.id) {
+
+                    case 1: // Complete 5 tests
+
+                        if (type === 'testCompleted') progress++;
+
+                        break;
+
+                    case 2: // Achieve 60 WPM
+
+                        if (type === 'wpm' && value > progress) progress = value;
+
+                        break;
+
+                    case 3: // Achieve 98% accuracy
+
+                        if (type === 'accuracy' && value > progress) progress = value;
+
+                        break;
+
+                    case 4: // Complete 10 practice sessions
+
+                        if (type === 'practiceCompleted') progress++;
+
+                        break;
+
+                    case 5: // Complete 5-minute test
+
+                        if (type === 'longTest' && value >= 5) progress = 1;
+
+                        break;
+
+                    case 6: // 7-day streak
+
+                        if (type === 'streak' && value > progress) progress = value;
+
+                        break;
+
+                    case 7: // Type 500 words
+
+                        if (type === 'words' && value > progress) progress = value;
+
+                        break;
+
+                    case 8: // 0 errors
+
+                        if (type === 'zeroErrors' && value === 0) progress = 1;
+
+                        break;
+
+                }
+
+                
+
+                if (progress !== mission.progress) {
+
+                    mission.progress = progress;
+
+                    updated = true;
+
+                    
+
+                    if (mission.progress >= mission.target) {
+
+                        mission.completed = true;
+
+                        showNotification(`Mission Complete: ${mission.title}`);
+
+                    }
+
+                }
+
+            });
+
+            
+
+            if (updated) {
+
+                renderMissions();
+
+                saveUserData();
+
+            }
+
+        }
+
+        // Show notification
+
+        function showNotification(message) {
+
+            notificationText.textContent = message;
+
+            notification.classList.add('show');
+
+            
+
+            setTimeout(() => {
+
+                notification.classList.remove('show');
+
+            }, 3000);
+
+        }
+
+        // Switch between tabs
+
+        function switchTab(tabName) {
+
+            // Hide all sections
+
+            document.querySelector('.test-section').style.display = 'none';
+
+            document.querySelector('.practice-section').style.display = 'none';
+
+            document.querySelector('.missions-section').style.display = 'none';
+
+            document.querySelector('.progress-section').style.display = 'none';
+
+            document.querySelector('.settings-section').style.display = 'none';
+
+            document.querySelector('.result-section').style.display = 'none';
+
+            
+
+            // Show selected section
+
+            document.querySelector(`.${tabName}-section`).style.display = 'block';
+
+            
+
+            // Update active tab
+
+            tabs.forEach(tab => {
+
+                if (tab.dataset.tab === tabName) {
+
+                    tab.classList.add('active');
+
+                } else {
+
+                    tab.classList.remove('active');
+
+                }
+
+            });
+
+            
+
+            // Update active footer button
+
+            footerBtns.forEach(btn => {
+
+                if (btn.dataset.tab === tabName) {
+
+                    btn.classList.add('active');
+
+                } else {
+
+                    btn.classList.remove('active');
+
+                }
+
+            });
+
+        }
+
+        // Toggle dark/light theme
+
+        function toggleTheme() {
+
+            document.body.classList.toggle('dark-mode');
+
+            
+
+            if (document.body.classList.contains('dark-mode')) {
+
+                themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+
+                localStorage.setItem('darkMode', 'true');
+
+            } else {
+
+                themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
+
+                localStorage.setItem('darkMode', 'false');
+
+            }
+
+        }
+
+        // Reset the typing test
+
+        function resetTest() {
+
+            clearInterval(timer);
+
+            isTestRunning = false;
+
+            currentIndex = 0;
+
+            errors = 0;
+
+            
+
+            // Get a random text based on difficulty
+
+            const texts = sampleTexts[currentDifficulty];
+
+            const randomIndex = Math.floor(Math.random() * texts.length);
+
+            currentText = texts[randomIndex];
+
+            
+
+            // Display the text with highlighting
+
+            displayText();
+
+            
+
+            // Reset stats
+
+            wpmValue.textContent = '0';
+
+            accuracyValue.textContent = '100%';
+
+            errorsValue.textContent = '0';
+
+            
+
+            // Reset input
+
+            typingInput.value = '';
+
+            typingInput.disabled = false;
+
+            startBtn.innerHTML = '<i class="fas fa-play"></i> Start Test';
+
+            startBtn.classList.remove('btn-secondary');
+
+            startBtn.classList.add('btn-primary');
+
+        }
+
+        // Reset the practice session
+
+        function resetPractice() {
+
+            isPracticeRunning = false;
+
+            currentIndex = 0;
+
+            errors = 0;
+
+            
+
+            // Get practice text based on mode and difficulty
+
+            if (currentPracticeMode === 'custom' && customText.value.trim() !== '') {
+
+                currentPracticeText = customText.value;
+
+            } else if (currentPracticeMode !== 'custom') {
+
+                currentPracticeText = practiceTexts[currentPracticeMode][currentPracticeDifficulty];
+
+            } else {
+
+                currentPracticeText = practiceTexts.home.easy;
+
+            }
+
+            
+
+            // Display the practice text
+
+            displayPracticeText();
+
+            
+
+            // Reset stats
+
+            practiceWpm.textContent = '0';
+
+            practiceAccuracy.textContent = '100%';
+
+            practiceErrors.textContent = '0';
+
+            
+
+            // Reset input
+
+            practiceInput.value = '';
+
+            practiceInput.disabled = false;
+
+            practiceStartBtn.innerHTML = '<i class="fas fa-play"></i> Start Practice';
+
+            practiceStartBtn.classList.remove('btn-secondary');
+
+            practiceStartBtn.classList.add('btn-primary');
+
+            
+
+            // Reset keyboard highlights
+
+            keys.forEach(key => {
+
+                key.classList.remove('active', 'incorrect');
+
+            });
+
+        }
+
+        // Update custom practice text
+
+        function updateCustomPracticeText() {
+
+            if (currentPracticeMode === 'custom') {
+
+                currentPracticeText = customText.value;
+
+                displayPracticeText();
+
+            }
+
+        }
+
+        // Display the text with proper formatting
+
+        function displayText() {
+
+            textDisplay.innerHTML = '';
+
+            
+
+            currentText.split('').forEach((char, index) => {
+
+                const span = document.createElement('span');
+
+                span.textContent = char;
+
+                
+
+                if (index === currentIndex) {
+
+                    span.classList.add('current');
+
+                }
+
+                
+
+                textDisplay.appendChild(span);
+
+            });
+
+        }
+
+        // Display the practice text with proper formatting
+
+        function displayPracticeText() {
+
+            practiceTextDisplay.innerHTML = '';
+
+            
+
+            if (!currentPracticeText) return;
+
+            
+
+            currentPracticeText.split('').forEach((char, index) => {
+
+                const span = document.createElement('span');
+
+                span.textContent = char;
+
+                
+
+                if (index === currentIndex) {
+
+                    span.classList.add('current');
+
+                }
+
+                
+
+                practiceTextDisplay.appendChild(span);
+
+            });
+
+        }
+
+        // Start the typing test
+
+        function startTest() {
+
+            if (!isTestRunning) {
+
+                isTestRunning = true;
+
+                startTime = new Date();
+
+                startBtn.innerHTML = '<i class="fas fa-pause"></i> Pause';
+
+                startBtn.classList.remove('btn-primary');
+
+                startBtn.classList.add('btn-secondary');
+
+                typingInput.focus();
+
+                
+
+                // Start timer for time-based tests
+
+                if (currentMode === 'time') {
+
+                    timer = setInterval(updateTimer, 1000);
+
+                    setTimeout(endTest, currentModeValue * 60 * 1000);
+
+                }
+
+            } else {
+
+                // Pause the test
+
+                isTestRunning = false;
+
+                clearInterval(timer);
+
+                startBtn.innerHTML = '<i class="fas fa-play"></i> Resume';
+
+                startBtn.classList.remove('btn-secondary');
+
+                startBtn.classList.add('btn-primary');
+
+            }
+
+        }
+
+        // Start the practice session
+
+        function startPractice() {
+
+            if (!isPracticeRunning) {
+
+                isPracticeRunning = true;
+
+                startTime = new Date();
+
+                practiceStartBtn.innerHTML = '<i class="fas fa-pause"></i> Pause';
+
+                practiceStartBtn.classList.remove('btn-primary');
+
+                practiceStartBtn.classList.add('btn-secondary');
+
+                practiceInput.focus();
+
+            } else {
+
+                // Pause the practice
+
+                isPracticeRunning = false;
+
+                practiceStartBtn.innerHTML = '<i class="fas fa-play"></i> Resume';
+
+                practiceStartBtn.classList.remove('btn-secondary');
+
+                practiceStartBtn.classList.add('btn-primary');
+
+            }
+
+        }
+
+        // Update the timer for time-based tests
+
+        function updateTimer() {
+
+            if (isTestRunning) {
+
+                const currentTime = new Date();
+
+                const elapsedTime = (currentTime - startTime) / 1000; // in seconds
+
+                const wpm = calculateWPM(elapsedTime);
+
+                wpmValue.textContent = wpm;
+
+            }
+
+        }
+
+        // Handle typing input for the test
+
+        function handleTyping(e) {
+
+            if (!isTestRunning && e.target.value.length > 0) {
+
+                startTest();
+
+            }
+
+            
+
+            if (!isTestRunning) return;
+
+            
+
+            const typedChar = e.target.value.slice(-1);
+
+            const currentChar = currentText[currentIndex];
+
+            
+
+            // Update highlighting
+
+            const spans = textDisplay.querySelectorAll('span');
+
+            
+
+            spans.forEach((span, index) => {
+
+                span.classList.remove('current', 'correct', 'incorrect');
+
+                
+
+                if (index === currentIndex) {
+
+                    span.classList.add('current');
+
+                } else if (index < currentIndex) {
+
+                    if (index < e.target.value.length) {
+
+                        if (e.target.value[index] === currentText[index]) {
+
+                            span.classList.add('correct');
+
+                        } else {
+
+                            span.classList.add('incorrect');
+
+                        }
+
+                    }
+
+                }
+
+            });
+
+            
+
+            // Check if the typed character is correct
+
+            if (typedChar === currentChar) {
+
+                currentIndex++;
+
+                
+
+                // Update keyboard highlight
+
+                updateKeyboardHighlight(currentChar, true);
+
+            } else {
+
+                errors++;
+
+                errorsValue.textContent = errors;
+
+                
+
+                // Update keyboard highlight
+
+                if (e.target.value.length > 0) {
+
+                    updateKeyboardHighlight(typedChar, false);
+
+                }
+
+            }
+
+            
+
+            // Calculate and update WPM and accuracy
+
+            const currentTime = new Date();
+
+            const elapsedTime = (currentTime - startTime) / 1000 / 60; // in minutes
+
+            const wpm = calculateWPM(elapsedTime);
+
+            const accuracy = calculateAccuracy();
+
+            
+
+            wpmValue.textContent = wpm;
+
+            accuracyValue.textContent = `${accuracy}%`;
+
+            
+
+            // Check if test is complete
+
+            if (currentMode === 'words' && currentIndex >= currentModeValue) {
+
+                endTest();
+
+            } else if (currentMode === 'infinity' && currentIndex >= currentText.length) {
+
+                // If we've reached the end of the text in infinity mode, get a new one
+
+                const texts = sampleTexts[currentDifficulty];
+
+                const randomIndex = Math.floor(Math.random() * texts.length);
+
+                currentText += ' ' + texts[randomIndex];
+
+                displayText();
+
+            } else if (currentIndex >= currentText.length) {
+
+                // If we've reached the end of the text, end the test
+
+                endTest();
+
+            }
+
+            
+
+            // Scroll to keep current character in view
+
+            const currentSpan = textDisplay.querySelector('.current');
+
+            if (currentSpan) {
+
+                currentSpan.scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'nearest' });
+
+            }
+
+        }
+
+        // Handle typing input for practice
+
+        function handlePracticeTyping(e) {
+
+            if (!isPracticeRunning && e.target.value.length > 0) {
+
+                startPractice();
+
+            }
+
+            
+
+            if (!isPracticeRunning) return;
+
+            
+
+            const typedChar = e.target.value.slice(-1);
+
+            const currentChar = currentPracticeText[currentIndex];
+
+            
+
+            // Update highlighting
+
+            const spans = practiceTextDisplay.querySelectorAll('span');
+
+            
+
+            spans.forEach((span, index) => {
+
+                span.classList.remove('current', 'correct', 'incorrect');
+
+                
+
+                if (index === currentIndex) {
+
+                    span.classList.add('current');
+
+                } else if (index < currentIndex) {
+
+                    if (index < e.target.value.length) {
+
+                        if (e.target.value[index] === currentPracticeText[index]) {
+
+                            span.classList.add('correct');
+
+                        } else {
+
+                            span.classList.add('incorrect');
+
+                        }
+
+                    }
+
+                }
+
+            });
+
+            
+
+            // Check if the typed character is correct
+
+            if (typedChar === currentChar) {
+
+                currentIndex++;
+
+                
+
+                // Update keyboard highlight
+
+                updateKeyboardHighlight(currentChar, true);
+
+            } else {
+
+                errors++;
+
+                practiceErrors.textContent = errors;
+
+                
+
+                // Update keyboard highlight
+
+                if (e.target.value.length > 0) {
+
+                    updateKeyboardHighlight(typedChar, false);
+
+                }
+
+            }
+
+            
+
+            // Calculate and update WPM and accuracy
+
+            const currentTime = new Date();
+
+            const elapsedTime = (currentTime - startTime) / 1000 / 60; // in minutes
+
+            const wpm = calculatePracticeWPM(elapsedTime);
+
+            const accuracy = calculatePracticeAccuracy();
+
+            
+
+            practiceWpm.textContent = wpm;
+
+            practiceAccuracy.textContent = `${accuracy}%`;
+
+            
+
+            // Check if we've reached the end of the practice text
+
+            if (currentIndex >= currentPracticeText.length) {
+
+                // If we've reached the end of the text, start over
+
+                currentIndex = 0;
+
+                errors = 0;
+
+                practiceErrors.textContent = '0';
+
+                startTime = new Date();
+
+                displayPracticeText();
+
+            }
+
+            
+
+            // Scroll to keep current character in view
+
+            const currentSpan = practiceTextDisplay.querySelector('.current');
+
+            if (currentSpan) {
+
+                currentSpan.scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'nearest' });
+
+            }
+
+        }
+
+        // Update keyboard highlighting
+
+        function updateKeyboardHighlight(char, isCorrect) {
+
+            if (!keyboardToggle.checked) return;
+
+            
+
+            keys.forEach(key => {
+
+                if (key.textContent.toLowerCase() === char.toLowerCase()) {
+
+                    key.classList.add('active');
+
+                    if (!isCorrect) {
+
+                        key.classList.add('incorrect');
+
+                    }
+
+                    
+
+                    // Remove highlight after a short time
+
+                    setTimeout(() => {
+
+                        key.classList.remove('active', 'incorrect');
+
+                    }, 300);
+
+                }
+
+            });
+
+        }
+
+        // Calculate WPM for the test
+
+        function calculateWPM(elapsedTime) {
+
+            if (elapsedTime === 0) return 0;
+
+            const words = currentIndex / 5;
+
+            return Math.round(words / elapsedTime);
+
+        }
+
+        // Calculate WPM for practice
+
+        function calculatePracticeWPM(elapsedTime) {
+
+            if (elapsedTime === 0) return 0;
+
+            const words = currentIndex / 5;
+
+            return Math.round(words / elapsedTime);
+
+        }
+
+        // Calculate accuracy for the test
+
+        function calculateAccuracy() {
+
+            const totalChars = currentIndex + errors;
+
+            if (totalChars === 0) return 100;
+
+            return Math.round(((currentIndex) / totalChars) * 100);
+
+        }
+
+        // Calculate accuracy for practice
+
+        function calculatePracticeAccuracy() {
+
+            const totalChars = currentIndex + errors;
+
+            if (totalChars === 0) return 100;
+
+            return Math.round(((currentIndex) / totalChars) * 100);
+
+        }
+
+        // End the test and show results
+
+        function endTest() {
+
+            isTestRunning = false;
+
+            clearInterval(timer);
+
+            typingInput.disabled = true;
+
+            
+
+            const elapsedTime = (new Date() - startTime) / 1000 / 60; // in minutes
+
+            const wpm = calculateWPM(elapsedTime);
+
+            const accuracy = calculateAccuracy();
+
+            
+
+            // Update result display
+
+            resultWpm.textContent = wpm;
+
+            resultAccuracy.textContent = `${accuracy}%`;
+
+            resultErrors.textContent = errors;
+
+            
+
+            // Update user stats
+
+            userStats.testsCompleted++;
+
+            userStats.totalWords += Math.floor(currentIndex / 5);
+
+            
+
+            if (wpm > userStats.bestWpm) {
+
+                userStats.bestWpm = wpm;
+
+            }
+
+            
+
+            if (accuracy > userStats.bestAccuracy) {
+
+                userStats.bestAccuracy = accuracy;
+
+            }
+
+            
+
+            // Update streak
+
+            const today = new Date().toDateString();
+
+            if (userStats.lastActivity !== today) {
+
+                const yesterday = new Date();
+
+                yesterday.setDate(yesterday.getDate() - 1);
+
+                
+
+                if (userStats.lastActivity === yesterday.toDateString()) {
+
+                    userStats.currentStreak++;
+
+                } else {
+
+                    userStats.currentStreak = 1;
+
+                }
+
+                
+
+                userStats.lastActivity = today;
+
+            }
+
+            
+
+            // Update missions
+
+            checkMissions('testCompleted', 1);
+
+            checkMissions('wpm', wpm);
+
+            checkMissions('accuracy', accuracy);
+
+            checkMissions('words', Math.floor(currentIndex / 5));
+
+            
+
+            if (currentMode === 'time' && currentModeValue >= 5) {
+
+                checkMissions('longTest', currentModeValue);
+
+            }
+
+            
+
+            if (errors === 0) {
+
+                checkMissions('zeroErrors', 0);
+
+            }
+
+            
+
+            checkMissions('streak', userStats.currentStreak);
+
+            
+
+            // Save to localStorage
+
+            saveUserData();
+
+            updateStatsDisplay();
+
+            
+
+            // Show result section
+
+            switchTab('result');
+
+        }
+
+        // Retry the test
+
+        function retryTest() {
+
+            resetTest();
+
+            switchTab('test');
+
+        }
+
+        // Initialize the app when the DOM is loaded
+
+        document.addEventListener('DOMContentLoaded', init);
+
+    </script>
+
+</body>
+
+</html>
